@@ -293,21 +293,34 @@
         localStorage.setItem('messages', JSON.stringify([])); // Reset localStorage
       });
 
-      // Countdown Timer
-      const eventDate = new Date("2025-12-31T00:00:00").getTime();
-      const countdownElement = document.getElementById("countdown");
+      // Random Kenangan Generator
+      const memories = [
+        "Inget nggak pas kita latihan grand closing aksara ada yang kabur kaburan? 😆",
+        "Inget gak supir bis KALEBAS yang pake baju merah mirip siapaa?",
+        "Pas belajar kutub bareng di perpustakaan tengah malam, vibes-nya mantap!",
+        "Inget gak seseru apaa RIHLAH kitaa?",
+        "Ngeprint LPJ sampe printer ngebul 🔥",
+        "Nangis nangis pas KMD huhuhuuuu....",
+        "Bunda Lilis sama Kak Hastono gimana yaa kabarnyaa?"
+      ];
 
-      setInterval(function() {
-        const now = new Date().getTime();
-        const distance = eventDate - now;
+      const memoryBtn = document.getElementById("memoryBtn");
+      const memoryOutput = document.getElementById("memoryOutput");
+      if (memoryBtn) {
+        memoryBtn.addEventListener("click", function () {
+          const random = memories[Math.floor(Math.random() * memories.length)];
+          memoryOutput.textContent = random;
+        });
+      }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }, 1000);
+      // Helper function to prevent XSS by escaping HTML characters
+      function escapeHTML(str) {
+        return str.replace(/&/g, "&amp;")
+                  .replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;")
+                  .replace(/"/g, "&quot;")
+                  .replace(/'/g, "&#039;");
+      }
     });
   </script>
 </body>
