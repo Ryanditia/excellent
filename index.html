@@ -60,12 +60,12 @@
     ul li::before { content: "➤ "; color: #00bcd4; }
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
     .gallery img { width: 100%; border-radius: 10px; transition: transform 0.3s ease; }
-    .gallery img:hover { transform: scale(1.1); }
+    .gallery img:hover { transform: scale(1.05); } /* Efek hover yang lebih halus */
     .map-container {
       position: relative;
       width: 100%;
       height: 400px;
-      background: url('assets/futuristic-map.png') center/cover no-repeat; /* Ganti dengan gambar peta futuristik */
+      background: url('assets/futuristic-map.png') center/cover no-repeat;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -79,15 +79,6 @@
     .map-label:hover {
       transform: scale(1.1);
     }
-    .peta-card {
-      background: rgba(0, 0, 50, 0.6);
-      padding: 1.5rem;
-      text-align: center;
-      border: 2px solid #00e5ff;
-      border-radius: 10px;
-      transition: transform 0.3s ease-in-out;
-    }
-    .peta-card:hover { transform: scale(1.05); background: rgba(0, 0, 80, 0.8); }
     textarea, input, select {
       width: 100%; padding: 10px; margin-bottom: 1rem;
       border-radius: 10px; border: none;
@@ -102,7 +93,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
-    button:hover { background: #0097a7; transform: scale(1.05); }
+    button:hover { background: #0097a7; transform: scale(1.05); } /* Efek hover yang lebih halus */
     footer { text-align: center; padding: 2rem 1rem; background: rgba(0, 0, 0, 0.6); margin-top: 3rem; }
     .social-icons a { margin: 0 10px; font-size: 25px; color: #00e5ff; }
     embed { width: 100%; height: 600px; border: none; border-radius: 8px; }
@@ -133,6 +124,12 @@
       margin-top: 1rem;
       text-align: center;
     }
+    .message-list {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -142,7 +139,7 @@
       <h1>Welcome Excellent People</h1>
     </header>
 
-    <section data-aos="fade-up">
+    <section data-aos="fade-up" class="fade-in">
       <h2>🗺️ Map of Our Journey</h2>
       <div class="map-container">
         <div class="map-label" style="top: 20%; left: 15%;">EXAMINATION</div>
@@ -155,30 +152,30 @@
       </div>
     </section>
 
-    <section data-aos="fade-up">
+    <section data-aos="fade-up" class="fade-in">
       <h2>📸 Memorable Excellent Day</h2>
       <div class="gallery">
-        <img src="assets/Snap1.jpg" alt="Snap1" data-aos="zoom-in">
-        <img src="assets/Snap2.jpg" alt="Snap2" data-aos="zoom-in">
-        <img src="assets/Snap3.jpg" alt="Snap3" data-aos="zoom-in">
-        <img src="assets/Snap4.jpg" alt="Snap4" data-aos="zoom-in">
-        <img src="assets/Snap5.jpg" alt="Snap5" data-aos="zoom-in">
-        <img src="assets/Snap6.jpg" alt="Snap6" data-aos="zoom-in">
-        <img src="assets/Snap7.jpg" alt="Snap7" data-aos="zoom-in">
-        <img src="assets/Snap8.jpg" alt="Snap8" data-aos="zoom-in">
+        <a href="assets/Snap1.jpg" data-lightbox="gallery"><img src="assets/Snap1.jpg" alt="Snap1"></a>
+        <a href="assets/Snap2.jpg" data-lightbox="gallery"><img src="assets/Snap2.jpg" alt="Snap2"></a>
+        <a href="assets/Snap3.jpg" data-lightbox="gallery"><img src="assets/Snap3.jpg" alt="Snap3"></a>
+        <a href="assets/Snap4.jpg" data-lightbox="gallery"><img src="assets/Snap4.jpg" alt="Snap4"></a>
+        <a href="assets/Snap5.jpg" data-lightbox="gallery"><img src="assets/Snap5.jpg" alt="Snap5"></a>
+        <a href="assets/Snap6.jpg" data-lightbox="gallery"><img src="assets/Snap6.jpg" alt="Snap6"></a>
+        <a href="assets/Snap7.jpg" data-lightbox="gallery"><img src="assets/Snap7.jpg" alt="Snap7"></a>
+        <a href="assets/Snap8.jpg" data-lightbox="gallery"><img src="assets/Snap8.jpg" alt="Snap8"></a>
       </div>
       <p style="margin-top:1rem;">
         🔗 <a href="https://drive.google.com/drive/folders/1nYbXuBh7NWoorq_IHWMMOGQGUoDiUGaQ" target="_blank">Excellent's pictures 📁</a>
       </p>
     </section>
 
-    <section data-aos="fade-right">
+    <section data-aos="fade-right" class="fade-in">
       <h2>📕 Excellent's Yearbook</h2>
       <embed src="Excellent Generation.pdf" type="application/pdf">
       <p><a href="Excellent Generation.pdf" download>⬇️ Download Yearbook</a></p>
     </section>
 
-    <section data-aos="fade-left">
+    <section data-aos="fade-left" class="fade-in">
       <h2>💬 Dump Talk</h2>
       <ul>
         <li>"Sehat sehat guys !."</li>
@@ -187,7 +184,7 @@
       </ul>
     </section>
 
-    <section data-aos="zoom-in">
+    <section data-aos="zoom-in" class="fade-in">
       <h2>🗓️ Upcoming plan</h2>
       <ul>
         <li>Juli 2025 - Semangat hidup baruu</li>
@@ -196,7 +193,7 @@
       </ul>
     </section>
 
-    <section data-aos="fade-up">
+    <section data-aos="fade-up" class="fade-in">
       <h2>📬 Kirim Pesan ke Teman</h2>
       <form id="dynamicMessageForm">
         <label for="nama">Namamu:</label>
@@ -208,11 +205,12 @@
         <label for="pesan">Pesan:</label>
         <textarea id="pesan" name="pesan" placeholder="Tulis sesuatu yang berkesan..." required></textarea>
         <button type="submit">🚀 Kirim Pesan</button>
+        <button type="button" id="resetMessages">🗑️ Reset Pesan</button> <!-- Tombol reset -->
       </form>
-      <div id="Yeay!PesanTerkirim" class="fade-in"></div>
+      <div class="message-list" id="messageList"></div>
     </section>
 
-    <section data-aos="fade-up">
+    <section data-aos="fade-up" class="fade-in">
       <h2>🌟 Excellent Wall of Fame</h2>
       <div class="fame-section">
         <div class="fame-card" data-aos="flip-left">
@@ -226,13 +224,12 @@
       </div>
     </section>
 
-    <section data-aos="fade-up">
-      <h2>🕹️ Random Kenangan Generator</h2>
-      <button id="memoryBtn">🎲 Klik Aku</button>
-      <p id="memoryOutput" style="margin-top:1rem;font-style:italic;"></p>
+    <section data-aos="fade-up" class="fade-in">
+      <h2>🕒 Countdown to Event</h2>
+      <div id="countdown"></div>
     </section>
 
-    <section data-aos="fade-up">
+    <section data-aos="fade-up" class="fade-in">
       <h2>📱 Bagikan Website Kami</h2>
       <div class="qr-code" id="qrCode"></div>
       <p>Scan kode QR untuk mengakses website kami di perangkat mana pun!</p>
@@ -253,7 +250,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      AOS.init({ once: true });
+      AOS.init({ duration: 1000, once: true });
 
       // Generate QR Code
       $('#qrCode').qrcode({
@@ -262,6 +259,11 @@
         height: 200
       });
 
+      const messages = JSON.parse(localStorage.getItem('messages')) || []; // Ambil pesan dari localStorage
+
+      // Tampilkan pesan yang ada saat halaman dimuat
+      document.getElementById("messageList").innerHTML = messages.join(''); 
+
       const form = document.getElementById("dynamicMessageForm");
       if (form) {
         form.addEventListener("submit", function(e) {
@@ -269,41 +271,43 @@
           const nama = document.getElementById("nama").value;
           const tujuan = document.getElementById("tujuan").value;
           const pesan = document.getElementById("pesan").value;
+
+          // Buat output pesan
           const output = `<div style='margin-top:1rem;padding:1rem;background:rgba(255,255,255,0.1);border-radius:10px;'>📩 <strong>${nama}</strong> untuk <strong>${tujuan}</strong>:<br/>"${pesan}"</div>`;
-          document.getElementById("Yeay!PesanTerkirim").innerHTML += output;
+          
+          // Tambahkan pesan ke array
+          messages.push(output);
+          
+          // Simpan pesan ke localStorage
+          localStorage.setItem('messages', JSON.stringify(messages));
+          
+          // Tampilkan semua pesan
+          document.getElementById("messageList").innerHTML = messages.join(''); // Tampilkan semua pesan
           form.reset();
         });
       }
 
-     // Random Kenangan Generator
-      const memories = [
-        "Inget nggak pas kita latihan grand closing aksara ada yang kabur kaburan? 😆",
-        "Inget gak supir bis KALEBAS yang pake baju merah mirip siapaa?",
-        "Pas belajar kutub bareng di perpustakaan tengah malam, vibes-nya mantap!",
-        "Inget gak seseru apaa RIHLAH kitaa?",
-        "Ngeprint LPJ sampe printer ngebul 🔥",
-        "Nangis nangis pas KMD huhuhuuuu....",
-        "Bunda Lilis sama Kak Hastono gimana yaa kabarnyaa?"
-      ];
+      // Event listener untuk tombol reset
+      document.getElementById("resetMessages").addEventListener("click", function() {
+        document.getElementById("messageList").innerHTML = ''; // Hapus semua pesan
+        localStorage.setItem('messages', JSON.stringify([])); // Reset localStorage
+      });
 
-      const memoryBtn = document.getElementById("memoryBtn");
-      const memoryOutput = document.getElementById("memoryOutput");
-      if (memoryBtn) {
-        memoryBtn.addEventListener("click", function () {
-          const random = memories[Math.floor(Math.random() * memories.length)];
-          memoryOutput.textContent = random;
-        });
-      }
+      // Countdown Timer
+      const eventDate = new Date("2025-12-31T00:00:00").getTime();
+      const countdownElement = document.getElementById("countdown");
 
-      // Helper function to prevent XSS by escaping HTML characters
-      function escapeHTML(str) {
-        return str.replace(/&/g, "&amp;")
-                  .replace(/</g, "&lt;")
-                  .replace(/>/g, "&gt;")
-                  .replace(/"/g, "&quot;")
-                  .replace(/'/g, "&#039;");
+      setInterval(function() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
 
-      }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
     });
   </script>
 </body>
